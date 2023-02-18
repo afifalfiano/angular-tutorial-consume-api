@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{title}}</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formTodolist">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Learning something new" formControlName="title">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
+          </div>
+          <div class="mb-3">
+            <select class="form-select" aria-label="Default select example" formControlName="status">
+                <option selected>Open this select menu</option>
+                <option value="todo">Todo</option>
+                <option value="progress">Progress</option>
+                <option value="completed">Completed</option>
+              </select>
+          </div>
+          <div class="mb-3">
+            <label for="due_date" class="form-label">Due Date</label>
+            <input type="date" class="form-control" id="due_date" formControlName="due_date">
+          </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" (click)="closeModal()" class="btn btn-secondary w-25">
+        Back
+    </button>
+    <button type="button" (click)="submit()" class="btn btn-danger w-25" [disabled]="formTodolist.invalid">Submit</button>
+  </div>

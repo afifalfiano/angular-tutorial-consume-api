@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Delete Todo</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true" class="visually-hidden" (click)="closeModal()">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Are you sure want to delete this todo with the title {{data.title}}?
+  </div>
+  <div class="modal-footer">
+    <button type="button" (click)="closeModal()" class="btn btn-secondary w-25">
+        Back
+    </button>
+    <button type="button" (click)="deleteData()" class="btn btn-danger w-25">Yes</button>
+  </div>

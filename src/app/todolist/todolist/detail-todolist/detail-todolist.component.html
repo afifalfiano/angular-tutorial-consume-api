@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Detail Todo</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true" class="visually-hidden" (click)="closeModal()">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-borderless">
+        <tr>
+            <td>Title</td>
+            <td>:</td>
+            <td>{{data.title}}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>:</td>
+            <td>{{data.description}}</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>:</td>
+            <td>
+                <ng-container [ngSwitch]="data.status">
+                    <span *ngSwitchCase="'progress'" class="badge bg-danger">Progress</span>
+                    <span *ngSwitchCase="'completed'" class="badge bg-primary">Completed</span>
+                    <span *ngSwitchDefault class="badge bg-warning">Todo</span>
+                </ng-container>
+            </td>
+        </tr>
+        <tr>
+            <td>Due Date</td>
+            <td>:</td>
+            <td>{{dueDate}}</td>
+        </tr>
+      </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" (click)="closeModal()" class="btn btn-secondary w-25">
+        Back
+    </button>
+  </div>
